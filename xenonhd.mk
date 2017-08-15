@@ -17,14 +17,14 @@
 
 $(call inherit-product, device/xiaomi/helium/full_helium.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common xenonhd stuff.
+$(call inherit-product, vendor/xenonhd/config/common_full_phone.mk)
 
 # Set those variables here to overwrite the inherited values.
 BOARD_VENDOR := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := helium
-PRODUCT_NAME := lineage_helium
+PRODUCT_NAME := xenonhd_helium
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := Mi Max
 TARGET_VENDOR := Xiaomi
@@ -32,7 +32,14 @@ TARGET_VENDOR := Xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Enable root
-WITH_SU := true
+ROOT_METHOD=su
+
+PRODUCT_PACKAGES += \
+AdAway \
+MiXplorer \
+KernelAdiutor
+
+PRODUCT_PROPERTY_OVERRIDES += ro.xenonhd.maintainer=Dave
 
 # Use the latest approved GMS identifiers unless running a signed build
 ifneq ($(SIGN_BUILD),true)

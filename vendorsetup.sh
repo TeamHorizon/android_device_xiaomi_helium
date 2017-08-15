@@ -1,1 +1,1 @@
-add_lunch_combo lineage_helium-userdebug
+add_lunch_combo xenonhd_helium-userdebug
